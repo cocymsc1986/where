@@ -10,6 +10,12 @@
       "StackName": "amplify-where-dev-223159",
       "StackId": "arn:aws:cloudformation:us-east-1:787958983120:stack/amplify-where-dev-223159/4f3d3fd0-e9d6-11ec-bf45-0ef50bd07a67",
       "AmplifyAppId": "d2cn98aztow5d3"
+    },
+    "categories": {
+      "auth": {
+        "wheredb292d98": {},
+        "true": {}
+      }
     }
   },
   "staging": {
