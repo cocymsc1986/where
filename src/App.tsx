@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { Form } from "./components/Form";
+import { Form, Image } from "./components";
+
+import mockData from "./mockData.json";
 
 const App = () => {
-  const correctAnswer = "Dublin";
+  const correctAnswer = mockData.location;
+
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [correctGuessIndex, setCorrectGuessIndex] = useState<
     undefined | number
@@ -21,6 +24,11 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">Where?</header>
+      <Image
+        images={mockData.images}
+        activeIndex={activeIndex}
+        correctGuessIndex={correctGuessIndex}
+      />
       <Form
         onSubmit={onSubmit}
         activeIndex={activeIndex}

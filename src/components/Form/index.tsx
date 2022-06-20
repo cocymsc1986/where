@@ -8,11 +8,7 @@ export type FormProps = {
   onSubmit: (value: string) => void;
 };
 
-const Form: React.FC<FormProps> = ({
-  activeIndex,
-  correctGuessIndex,
-  onSubmit,
-}) => {
+const Form = ({ activeIndex, correctGuessIndex, onSubmit }: FormProps) => {
   const [value, setValue] = useState<string>("");
   const [guesses, setGuesses] = useState<Record<number, string>>({});
 
@@ -61,7 +57,9 @@ const Form: React.FC<FormProps> = ({
           isIncorrect={index < activeIndex}
           disabled={index !== activeIndex || index === correctGuessIndex}
           value={
-            index === activeIndex && !correctGuessIndex ? value : guesses[index]
+            index === correctGuessIndex || index !== activeIndex
+              ? guesses[index]
+              : value
           }
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setValue(e.target.value)

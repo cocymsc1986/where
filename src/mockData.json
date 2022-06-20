@@ -1,0 +1,35 @@
+{
+  "location": "Dublin",
+  "images": [
+    {
+      "id": "6d8629bd-de98-47d5-ba28-09d375ef1c5d",
+      "difficulty": 1,
+      "imageUrl": "https://picsum.photos/200",
+      "name": "Image 1"
+    },
+    {
+      "id": "88d29069-e0fd-4569-a7a4-fd92cfbe52c4",
+      "difficulty": 2,
+      "imageUrl": "https://picsum.photos/300",
+      "name": "Image 2"
+    },
+    {
+      "id": "50b50fc2-3cf7-4794-9122-67febac23498",
+      "difficulty": 3,
+      "imageUrl": "https://picsum.photos/200",
+      "name": "Image 3"
+    },
+    {
+      "id": "0fd54210-3204-4ef7-bd9e-d15b643f07ac",
+      "difficulty": 4,
+      "imageUrl": "https://picsum.photos/300",
+      "name": "Image 4"
+    },
+    {
+      "id": "1b4eb5ee-d1d5-404d-88bf-77b64a4b1436",
+      "difficulty": 5,
+      "imageUrl": "https://picsum.photos/200",
+      "name": "Image 5"
+    }
+  ]
+}
