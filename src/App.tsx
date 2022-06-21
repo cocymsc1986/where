@@ -1,41 +1,16 @@
-import { useState } from "react";
-import { Form, Image } from "./components";
+import { Routes, Route } from "react-router-dom";
 
-import mockData from "./mockData.json";
+import { HomePage, UploadPage } from "./pages";
 
 const App = () => {
-  const correctAnswer = mockData.location;
-
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [correctGuessIndex, setCorrectGuessIndex] = useState<
-    undefined | number
-  >(undefined);
-
-  const onSubmit = (value: string) => {
-    if (value === correctAnswer) {
-      setCorrectGuessIndex(activeIndex);
-      return;
-    }
-
-    setActiveIndex((prevIndex) => prevIndex + 1);
-    console.log("submitted");
-  };
-
   return (
     <div className="App">
-      <header className="App-header">Where?</header>
-      <Image
-        images={mockData.images}
-        activeIndex={activeIndex}
-        correctGuessIndex={correctGuessIndex}
-      />
-      <Form
-        onSubmit={onSubmit}
-        activeIndex={activeIndex}
-        correctGuessIndex={correctGuessIndex}
-      />
+      <Routes>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/upload" element={<UploadPage />}></Route>
+      </Routes>
     </div>
   );
 };
 
-export default App;
+export { App };
