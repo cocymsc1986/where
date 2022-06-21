@@ -36,6 +36,20 @@ const Upload = ({ onUpload }: UploadProps) => {
   const isDisabled = () =>
     !(locationValue.length && Object.values(images).length === 5);
 
+  const renderImageInputs = () =>
+    Array.from(Array(5)).map((_, index) => (
+      <div key={`input-${index}-field`}>
+        <label htmlFor={`image-${index + 1}`}>Image {index + 1}</label>
+        <input
+          data-testid={`image-${index + 1}-input`}
+          id={`image-${index + 1}`}
+          type="file"
+          accept="image/png, image/jpg, image/jpeg, image/webp"
+          onChange={handleFileUpload}
+        />
+      </div>
+    ));
+
   return (
     <form onSubmit={handleSubmit} data-testid={"upload-form"}>
       <div>
@@ -53,52 +67,7 @@ const Upload = ({ onUpload }: UploadProps) => {
         Upload in order of difficulty, image 1 is shown to the user first, image
         5 last
       </h3>
-      <div>
-        <label htmlFor="image-1">Image 1</label>
-        <input
-          data-testid="image-1-input"
-          id="image-1"
-          type="file"
-          accept="image/png, image/jpg, image/jpeg, image/webp"
-          onChange={handleFileUpload}
-        />
-      </div>
-      <div>
-        <label htmlFor="image-2">Image 2</label>
-        <input
-          id="image-2"
-          type="file"
-          accept="image/png, image/jpg, image/jpeg, image/webp"
-          onChange={handleFileUpload}
-        />
-      </div>
-      <div>
-        <label htmlFor="image-3">Image 3</label>
-        <input
-          id="image-3"
-          type="file"
-          accept="image/png, image/jpg, image/jpeg, image/webp"
-          onChange={handleFileUpload}
-        />
-      </div>
-      <div>
-        <label htmlFor="image-4">Image 4</label>
-        <input
-          id="image-4"
-          type="file"
-          accept="image/png, image/jpg, image/jpeg, image/webp"
-          onChange={handleFileUpload}
-        />
-      </div>
-      <div>
-        <label htmlFor="image-5">Image 5</label>
-        <input
-          id="image-5"
-          type="file"
-          accept="image/png, image/jpg, image/jpeg, image/webp"
-          onChange={handleFileUpload}
-        />
-      </div>
+      {renderImageInputs()}
       <button type="submit" disabled={isDisabled()}>
         Upload
       </button>
